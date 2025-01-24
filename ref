@@ -1,0 +1,16 @@
+HOW TO USE THE SDK?
+
+client := NewGitHubClient("your-username", "your-github-token", "your-repo")
+issue := issuetracker.Issue{
+    Title:       "Bug: API authentication",
+    Description: "Users are experiencing authentication failures.",
+    Labels:      []string{"bug", "urgent"},
+    Assignees:   []string{"your-username"},
+}
+
+issueURL, err := client.CreateIssue(issue)
+if err != nil {
+    fmt.Println("Error:", err)
+} else {
+    fmt.Println("Issue created:", issueURL)
+}
